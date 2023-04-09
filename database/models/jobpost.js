@@ -5,6 +5,9 @@ const jobpostSchema = mongoose.Schema({
     jobtitle:{
         type:String
     },
+    jobtype:{
+        type:String
+    },
     location:{
         type:String
     },

@@ -10,11 +10,13 @@ exports.postJobpost = async (req,res)=>{
     try{
 
         const {jobtitle} = req.body;
+        const {jobtype} = req.body;
         const {location} = req.body;
         const {salary} = req.body;
         const {description} = req.body;
         const createJobpost = new Jobpost({
             jobtitle,
+            jobtype,
             location,
             salary,
             description 

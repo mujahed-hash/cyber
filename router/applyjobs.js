@@ -29,5 +29,18 @@ router.get('/appliedjobs/:id', async (req,res)=>{
     else{
         res.status(200).send(appliedjob);
     }
-})
+});
+
+router.delete('/appliedjobs/:id', (req,res)=>{
+  Applyjob.findByIdAndRemove(req.params.id).then(appliedjob =>{
+    if(appliedjob){
+        res.status(201).json({status: "success", message: "appliedjob is deleted successfully"});   
+       }
+       else{
+        return res.status(404).json({error: 'could not find appliedjob'})
+       }
+  }).catch(err=>{
+      return res.status(400).json({error:err});
+  });
+});
 module.exports = router;
